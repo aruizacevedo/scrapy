@@ -77,6 +77,8 @@ Use it to identify the elements to be scraped.
 - `book = books[0]`  // Get first book
 - `book.css('h3 a::text').get()`  // Extract the text enclosed in the 'a' tag, child of 'h3'
 - `book.css('h3 a').attrib['href']`  // Extract the 'href' attribute from the 'a' tag
+---
+- `response.css('li.next a ::attr(href)').get()`  // Extract the 'href' from the a tag, child of the 'li' tag with class 'next'
 
 ### Update the scrapy spider
 
