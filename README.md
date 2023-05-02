@@ -1,18 +1,23 @@
-# python-template
+# Scrapy
 
-Modified from Noah Gift's approach in 'Assimilate Python'.
+Set of web scrapping projects, taken from [freeCodeCamp](https://www.youtube.com/watch?v=mBoX_JCKZTE)
 
-## Project scafold steps
+## Setup GitHub and Conda Environment
 
-* Create GitHub repo: 'python-template'
+* Create GitHub repo: 'scrapy'
 
 * Create Conda/Venv, matching reponame: 
 ```
-$ conda create -n python-template python=3 -y
-$ conda activate python-template
+$ conda create -n scrapy python=3 -y
+$ conda activate scrapy
 ```
 
-* Create Makefile for common tasks:
+* Use Makefile to install 'scrapy':
+
+In 'requirements.txt:
+```
+scrapy
+```
 
 In 'Makefile':
 ```
@@ -23,14 +28,5 @@ install:
 
 Install with: $ make install
 
-* Test Python Script
 
-In 'hello.py':
-```
-#!usr/bin/env python
-print("hello")
-```
-
-1. Change permission: $ chmod +x hello.py
-2. Run with:          $ ./hello.py
 
