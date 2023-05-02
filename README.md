@@ -68,6 +68,8 @@ Activate by using: $ scrapy shell
 
 ### Scrapy shell
 
+Use it to identify the elements to be scraped.
+
 - `fetch('https://books.toscrape.com')`
 - `response`
 - `books = response.css('article.product_pod')`  // TAG: article, CLASS: product_pod
@@ -75,5 +77,26 @@ Activate by using: $ scrapy shell
 - `book = books[0]`  // Get first book
 - `book.css('h3 a::text').get()`  // Extract the text enclosed in the 'a' tag, child of 'h3'
 - `book.css('h3 a').attrib['href']`  // Extract the 'href' attribute from the 'a' tag
+
+### Update the scrapy spider
+
+In 'spiders/bookspider.py', update the `parse()` method:
+
+```
+    def parse(self, response):
+        books = response.css('article.product_pod')
+        for book in books:
+            yield {
+                'name': book.css('h3 a::text').get(),
+                'price': book.css('.product_price .price_color::text').get(),
+                'url': book.css('h3 a'.attrib['href'])
+            }
+```
+
+### Test the spider
+
+```
+$ scrapy crawl bookspider
+```
 
 
