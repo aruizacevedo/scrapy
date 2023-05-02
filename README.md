@@ -66,6 +66,14 @@ shell = ipython
 
 Activate by using: $ scrapy shell
 
+### Scrapy shell
 
+- `fetch('https://books.toscrape.com')`
+- `response`
+- `books = response.css('article.product_pod')`  // TAG: article, CLASS: product_pod
+- `len(books)`
+- `book = books[0]`  // Get first book
+- `book.css('h3 a::text').get()`  // Extract the text enclosed in the 'a' tag, child of 'h3'
+- `book.css('h3 a').attrib['href']`  // Extract the 'href' attribute from the 'a' tag
 
 
