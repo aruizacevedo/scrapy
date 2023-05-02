@@ -2,6 +2,9 @@
 
 Set of web scrapping projects, taken from [freeCodeCamp](https://www.youtube.com/watch?v=mBoX_JCKZTE)
 
+- [The Python Scrapy Playbook](https://scrapeops.io/python-scrapy-playbook/)
+- [Python Scrapy Beginners Course](https://thepythonscrapyplaybook.com/freecodecamp-beginner-course/)
+
 ## Setup GitHub and Conda Environment
 
 * Create GitHub repo: 'scrapy'
