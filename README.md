@@ -32,4 +32,40 @@ install:
 Install with: $ make install
 
 
+## Create Basic Scraping project
+
+- Create a Scrapy project
+
+```
+$ scrapy startproject <name-of-project>
+```
+
+This creates the general template for a scrapin project.
+
+
+- Create a Spider
+
+Navigate to the 'spiders' directory, and create a spider:
+
+```
+$ scrapy genspider <noame-of-spider> <website>
+```
+
+- Scrapy shell
+
+Install ipython:
+
+```
+pip install ipython
+```
+
+Include the shell in the config file: 'scrapy.cfg':
+```
+shell = ipython
+```
+
+Activate by using: $ scrapy shell
+
+
+
 
