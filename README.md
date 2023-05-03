@@ -112,7 +112,7 @@ $ scrapy crawl bookspider
 Save output to CSV/JSON
 
 ```
-$ scrapy crawl bookspider -O data.csv
-$ scrapy crawl bookspider -O data.json
+$ scrapy crawl bookspider -O bookdata.csv
+$ scrapy crawl bookspider -O bookdata.json
 ```
 
