@@ -48,7 +48,7 @@ This creates the general template for a scrapin project.
 Navigate to the 'spiders' directory, and create a spider:
 
 ```
-$ scrapy genspider <noame-of-spider> <website>
+$ scrapy genspider <name-of-spider> <website>
 ```
 
 - Scrapy shell
@@ -75,10 +75,18 @@ Use it to identify the elements to be scraped.
 - `books = response.css('article.product_pod')`  // TAG: article, CLASS: product_pod
 - `len(books)`
 - `book = books[0]`  // Get first book
+
+**CSS Selectors**
+
 - `book.css('h3 a::text').get()`  // Extract the text enclosed in the 'a' tag, child of 'h3'
 - `book.css('h3 a').attrib['href']`  // Extract the 'href' attribute from the 'a' tag
 ---
 - `response.css('li.next a ::attr(href)').get()`  // Extract the 'href' from the a tag, child of the 'li' tag with class 'next'
+
+**XPath**
+
+- `fetch('https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html')`
+- `response.xpath("//ul[@class='breadcrumb']/li[@class='active']/preceding-sibling::li[1]/a/text()").get()`
 
 ### Update the scrapy spider
 
@@ -101,4 +109,10 @@ In 'spiders/bookspider.py', update the `parse()` method:
 $ scrapy crawl bookspider
 ```
 
+Save output to CSV/JSON
+
+```
+$ scrapy crawl bookspider -O data.csv
+$ scrapy crawl bookspider -O data.json
+```
 
