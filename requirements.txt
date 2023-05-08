@@ -1,3 +1,5 @@
 ipython
 python-dotenv
 scrapy
+mysql
+mysql-connector-python
