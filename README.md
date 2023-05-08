@@ -116,6 +116,32 @@ $ scrapy crawl bookspider -O bookdata.csv
 $ scrapy crawl bookspider -O bookdata.json
 ```
 
+Options:
+
+- `-O`: Outputs to a file (eg. csv, json) (overrides existing output)
+- `-o`: Appends to an existing file (appends to existing output)
+
+The location can be set in `settings.py`:
+
+```
+FEEDS = {
+    'bookdata.json': {'format': 'json', 'overwrite': True}
+}
+```
+
+If you want custom settings for a specific spider (not global settings), use in your spider definition:
+
+```
+custom_settings = {
+    'FEEDS': {
+        'booksdata.json': {'format': 'json', 'overwrite': True}
+    }
+}
+```
+
+
+
+
 ---
 
 ### Using **Items** and **Pipelines**
