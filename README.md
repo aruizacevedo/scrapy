@@ -116,3 +116,61 @@ $ scrapy crawl bookspider -O bookdata.csv
 $ scrapy crawl bookspider -O bookdata.json
 ```
 
+---
+
+### Using **Items** and **Pipelines**
+
+
+#### On `items.py`:
+
+Define a class to capture each scraped item (e.g. Books)
+
+```
+import scrapy
+
+class BookItem(scrapy.Item):
+    # define the fields for your item here like:
+    name = scrapy.Field()
+```
+
+For simple data parsing, you can define a function here to serialize the scraped data. It can be passed to the *serialize* argument of `scrapy.Field()`.
+
+```
+def serialize_price(value):
+    return f'£ {str(value)}'
+```
+
+For more advanced data parsing, use a pipeline.
+
+#### On 'pipelines.py`:
+
+Define a pipeline to process/clean each data item. For example:
+
+```
+from itemadapter import ItemAdapter
+
+class BookscraperPipeline:
+    def process_item(self, item, spider):
+
+        adapter = ItemAdapter(item)
+
+        ## Strip all whitespaces from strings
+        field_names = adapter.field_names()
+        for field_name in field_names:
+            if field_name != 'description':
+                value = adapter.get(field_name)
+                adapter[field_name] = value[0].strip()
+
+        return item
+```
+
+Note that the pipeline needs to be enabled in `settings.py`.
+
+```
+ITEM_PIPELINES = {
+   "bookscraper.pipelines.BookscraperPipeline": 300,
+}
+```
+
+
+
