@@ -109,7 +109,9 @@ In 'spiders/bookspider.py', update the `parse()` method:
 $ scrapy crawl bookspider
 ```
 
-Save output to CSV/JSON
+### Saving outputs
+
+#### 1. Save output to CSV/JSON
 
 ```
 $ scrapy crawl bookspider -O bookdata.csv
@@ -139,8 +141,26 @@ custom_settings = {
 }
 ```
 
+#### 2. Save outputs to database
 
+Using MYSQL: Create database to store scraped data
 
+- Install MySQL (Homebrew): `$ brew install mysql`
+- Start service: `$ brew services start mysql`
+- Configure it: `$ mysql_secure_installation`
+- Login with: `$ mysql -u root -p`
+
+```
+[mysql]
+>>> CREATE DATABASE books;
+>>> SHOW DATABASES;
+>>> EXIT
+```
+
+Make sure your Python environment has the following packages: `pip install mysql mysql-connector-python`
+
+- Add a Class in *pipelines* to save to SQL: **SaveToMySQLPipeline()**
+- Update *settings* to include the pipeline: **ITEM_PIPELINES**
 
 ---
 
