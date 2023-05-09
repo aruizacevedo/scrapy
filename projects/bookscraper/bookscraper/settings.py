@@ -13,9 +13,9 @@ SPIDER_MODULES = ["bookscraper.spiders"]
 NEWSPIDER_MODULE = "bookscraper.spiders"
 
 # Set general settings for output files
-FEEDS = {
-    'bookdata.json': {'format': 'json'}
-}
+# FEEDS = {
+#     'bookdata.json': {'format': 'json'}
+# }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "bookscraper (+http://www.yourdomain.com)"
