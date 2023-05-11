@@ -1,5 +1,6 @@
 import scrapy
 from bookscraper.items import BookItem
+import random
 
 
 class BookspiderSpider(scrapy.Spider):
@@ -25,7 +26,10 @@ class BookspiderSpider(scrapy.Spider):
                 book_url = 'https://books.toscrape.com/' + relative_url
             else:
                 book_url = 'https://books.toscrape.com/catalogue/' + relative_url
-            yield response.follow(book_url, callback=self.parse_book_page)
+            yield response.follow(
+                    book_url, 
+                    callback=self.parse_book_page
+                )
 
         next_page = response.css('li.next a ::attr(href)').get()
         if next_page is not None:
@@ -33,7 +37,10 @@ class BookspiderSpider(scrapy.Spider):
                 next_page_url = 'https://books.toscrape.com/' + next_page
             else:
                 next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
-            yield response.follow(next_page_url, callback=self.parse)
+            yield response.follow(
+                    next_page_url, 
+                    callback=self.parse
+                )
 
 
     def parse_book_page(self, response):
