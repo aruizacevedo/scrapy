@@ -3,3 +3,5 @@ python-dotenv
 scrapy
 mysql
 mysql-connector-python
+scrapy-rotating-proxies
+
