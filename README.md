@@ -40,7 +40,7 @@ Install with: $ make install
 $ scrapy startproject <name-of-project>
 ```
 
-This creates the general template for a scrapin project.
+This creates the general template for a scraping project.
 
 
 - Create a Spider
