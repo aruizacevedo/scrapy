@@ -34,6 +34,11 @@ SCRAPEOPS_NUM_RESULTS = 50
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+# Rotating proxies
+# ROTATING_PROXY_LIST = []
+# ROTATING_PROXY_LIST_PATH = '/my/path/proxies.txt'
+
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
